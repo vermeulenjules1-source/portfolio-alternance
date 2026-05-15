@@ -5,14 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Stage Mission — Jules Vermeulen</title>
 <link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
 <style>
-  #map { height: 380px; width: 100%; border-radius: 8px; border: 0.5px solid var(--border); }
-  .leaflet-popup-content-wrapper { background: #0C1D35; color: #E4F2F8; border: 0.5px solid rgba(12,192,212,0.3); border-radius: 8px; }
-  .leaflet-popup-tip { background: #0C1D35; }
-  .leaflet-popup-content { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 0.85rem; line-height: 1.6; }
-  .map-label { font-weight: 700; color: #0CC0D4; margin-bottom: 0.25rem; }
-  @media (max-width: 768px) { #map { height: 260px; } }
+  .map-frame { width: 100%; height: 380px; border-radius: 8px; border: 0.5px solid var(--border); display: block; }
+  @media (max-width: 768px) { .map-frame { height: 260px; } }
 </style>
 </head>
 <body>
@@ -51,7 +46,13 @@
       </div>
     </div>
     <div class="will-animate delay-2">
-      <div id="map"></div>
+      <iframe
+        class="map-frame"
+        src="https://maps.google.com/maps?q=170+Cours+du+Medoc+33300+Bordeaux&output=embed&z=16"
+        allowfullscreen
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
     </div>
   </div>
 
@@ -130,21 +131,6 @@
   </div>
 </footer>
 
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="anim.js"></script>
-<script>
-  const map = L.map('map', { zoomControl: true, scrollWheelZoom: false }).setView([44.8635, -0.5513], 16);
-  L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-    attribution: '© OpenStreetMap © CARTO', maxZoom: 19
-  }).addTo(map);
-  const icon = L.divIcon({
-    html: '<div style="background:#0CC0D4;width:16px;height:16px;border-radius:50%;border:3px solid #fff;box-shadow:0 0 14px rgba(12,192,212,0.9);"></div>',
-    className: '', iconSize: [16,16], iconAnchor: [8,8]
-  });
-  L.marker([44.8635, -0.5513], { icon })
-    .addTo(map)
-    .bindPopup('<div class="map-label">🏄 Wave Surf Café</div>170 Cours du Médoc<br>Bordeaux, 33300')
-    .openPopup();
-</script>
 </body>
 </html>
