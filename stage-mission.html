@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stage Mission — Jules Vermeulen</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+<style>
+  #map { height: 380px; width: 100%; border-radius: 8px; border: 0.5px solid var(--border); }
+  .leaflet-popup-content-wrapper { background: #0C1D35; color: #E4F2F8; border: 0.5px solid rgba(12,192,212,0.3); border-radius: 8px; }
+  .leaflet-popup-tip { background: #0C1D35; }
+  .leaflet-popup-content { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 0.85rem; line-height: 1.6; }
+  .map-label { font-weight: 700; color: #0CC0D4; margin-bottom: 0.25rem; }
+  @media (max-width: 768px) { #map { height: 260px; } }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">Jules<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="experiences.html">Expériences</a></li>
+    <li><a href="competences.html">Compétences</a></li>
+    <li><a href="stage-mission.html" class="active">Stage Mission</a></li>
+    <li><a href="evenements.html">Événements</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+  <a href="https://www.linkedin.com/in/jules-vermeulen/" target="_blank" class="nav-cta">LinkedIn →</a>
+</nav>
+
+<div class="page-header">
+  <div class="page-header-label">PPP · Zoom S4</div>
+  <h1 class="page-header-title">Stage<br><em>Mission</em></h1>
+  <p class="page-header-sub">Analyse réflexive de mon stage S4 au Wave Surf Café — compétences acquises, situations mobilisées et niveau de maîtrise.</p>
+</div>
+
+<!-- CONTEXTE + MAP -->
+<section>
+  <div class="section-label">Contexte du stage</div>
+  <h2 class="section-title">Wave Surf Café<br><em>Bordeaux, S4</em></h2>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start;max-width:1000px;margin:0 auto 4rem;" class="about-grid">
+    <div class="will-animate">
+      <p style="color:var(--muted);margin-bottom:1.25rem;line-height:1.9;">Stage de <strong style="color:var(--text)">2 mois</strong> (janvier–février 2026) au sein du <strong style="color:var(--text)">Wave Surf Café</strong>, restaurant-bar à l'identité surf situé au 170 Cours du Médoc à Bordeaux. Mission principale : <strong style="color:var(--text)">structurer et dynamiser la communication digitale</strong> de l'établissement.</p>
+      <div style="display:flex;flex-direction:column;gap:0.85rem;margin-top:1.5rem;">
+        <div class="reason-card"><div class="reason-icon">📍</div><div><h4>Lieu</h4><p>170 Cours du Médoc, Bordeaux · Quartier Bacalan</p></div></div>
+        <div class="reason-card"><div class="reason-icon">📅</div><div><h4>Période</h4><p>Janvier 2026 — Février 2026 · 8 semaines</p></div></div>
+        <div class="reason-card"><div class="reason-icon">🎯</div><div><h4>Poste</h4><p>Chargé de communication digitale · Stage Mission S4</p></div></div>
+      </div>
+    </div>
+    <div class="will-animate delay-2">
+      <div id="map"></div>
+    </div>
+  </div>
+
+  <!-- COMPÉTENCES ACQUISES -->
+  <div class="section-label">Compétences acquises ou renforcées</div>
+  <h2 class="section-title" style="margin-top:0.5rem;">Ce que j'ai<br><em>développé</em></h2>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.25rem;max-width:1000px;margin:0 auto 4rem;">
+    <div class="reason-card will-animate delay-1"><div class="reason-icon">📣</div><div><h4>Stratégie de communication 360°</h4><p>Capacité à construire un plan cohérent sur tous les canaux digitaux.</p></div></div>
+    <div class="reason-card will-animate delay-2"><div class="reason-icon">✉️</div><div><h4>Email marketing & CRM</h4><p>Campagnes de re-engagement, segmentation, optimisation des taux d'ouverture.</p></div></div>
+    <div class="reason-card will-animate delay-3"><div class="reason-icon">📊</div><div><h4>Analyse de performance</h4><p>Lecture et interprétation des KPIs digitaux pour ajuster les actions.</p></div></div>
+    <div class="reason-card will-animate delay-4"><div class="reason-icon">🖼️</div><div><h4>Production de contenu</h4><p>Création autonome de visuels et textes adaptés aux canaux et audiences.</p></div></div>
+    <div class="reason-card will-animate delay-5"><div class="reason-icon">🤝</div><div><h4>Autonomie & initiative</h4><p>Prise en charge de projets de bout en bout avec peu de supervision.</p></div></div>
+    <div class="reason-card will-animate delay-1"><div class="reason-icon">🔍</div><div><h4>Diagnostic digital</h4><p>Audit de l'existant, identification des points d'amélioration, priorisation.</p></div></div>
+  </div>
+
+  <!-- SITUATIONS -->
+  <div class="section-label">Situations professionnelles</div>
+  <h2 class="section-title" style="margin-top:0.5rem;">3 situations<br><em>clés</em></h2>
+  <div style="max-width:1000px;margin:0 auto;">
+
+    <div class="situation-card will-animate">
+      <div class="situation-num">Situation 01</div>
+      <div class="situation-title">Élaboration du plan de communication digitale 360°</div>
+      <div class="situation-grid">
+        <div class="situation-block"><label>Contexte</label><p>L'établissement n'avait pas de stratégie de communication formalisée. Chaque action était menée de façon ponctuelle, sans cohérence ni calendrier.</p></div>
+        <div class="situation-block"><label>Activités réalisées</label><p>Audit de l'existant, définition des objectifs, construction d'un planning éditorial mensuel, rédaction du plan de communication.</p></div>
+        <div class="situation-block"><label>Personnes impliquées</label><p>Directeur de l'établissement, équipe de service, prestataire graphique externe.</p></div>
+        <div class="situation-block"><label>Écarts objectifs / résultats</label><p>Plan validé dès la 3ème semaine. Planning sur 3 mois atteint, régularité des publications maintenue.</p></div>
+      </div>
+      <div class="situation-result"><strong>Compétence :</strong> Concevoir et mettre en œuvre la communication &nbsp;·&nbsp; <span class="mastery-badge m3">Maîtrise</span></div>
+    </div>
+
+    <div class="situation-card will-animate">
+      <div class="situation-num">Situation 02</div>
+      <div class="situation-title">Campagnes de re-engagement de la base de données clients</div>
+      <div class="situation-grid">
+        <div class="situation-block"><label>Contexte</label><p>La base de données newsletters était inactive depuis plusieurs mois. Faible taux d'ouverture, aucun envoi depuis 6 mois.</p></div>
+        <div class="situation-block"><label>Activités réalisées</label><p>Segmentation de la base, rédaction de 3 séquences d'emails de re-engagement, A/B test sur les objets, suivi des KPIs.</p></div>
+        <div class="situation-block"><label>Personnes impliquées</label><p>Responsable de l'établissement, base de contacts clients existante.</p></div>
+        <div class="situation-block"><label>Écarts objectifs / résultats</label><p>Taux d'ouverture supérieur à la moyenne restauration. Réactivation partielle de la base atteinte.</p></div>
+      </div>
+      <div class="situation-result"><strong>Compétence :</strong> Développer la relation client &nbsp;·&nbsp; <span class="mastery-badge m2">Approfondissement</span></div>
+    </div>
+
+    <div class="situation-card will-animate">
+      <div class="situation-num">Situation 03</div>
+      <div class="situation-title">Mise en place d'un tableau de bord de performance</div>
+      <div class="situation-grid">
+        <div class="situation-block"><label>Contexte</label><p>Aucun suivi des performances en place. Impossible de mesurer l'impact des actions ni d'ajuster la stratégie.</p></div>
+        <div class="situation-block"><label>Activités réalisées</label><p>Tableau de bord mensuel (reach, engagement, taux d'ouverture). Présentation hebdomadaire au responsable.</p></div>
+        <div class="situation-block"><label>Personnes impliquées</label><p>Directeur · Outils : Meta Business Suite, Mailchimp, Google Analytics.</p></div>
+        <div class="situation-block"><label>Écarts objectifs / résultats</label><p>Tableau de bord livré en fin de stage, transmis pour usage autonome par l'équipe. Objectif atteint.</p></div>
+      </div>
+      <div class="situation-result"><strong>Compétence :</strong> Réaliser des études et exploiter des données &nbsp;·&nbsp; <span class="mastery-badge m2">Approfondissement</span></div>
+    </div>
+
+  </div>
+</section>
+
+<section class="alt">
+  <div class="section-label">Prise de recul</div>
+  <h2 class="section-title">Ce que ce stage<br><em>m'a appris</em></h2>
+  <div style="max-width:680px;margin:0 auto;" class="will-animate">
+    <p style="color:var(--muted);margin-bottom:1.25rem;line-height:1.9;">Ce stage m'a confirmé que je suis à l'aise dans des environnements où l'<strong style="color:var(--text)">autonomie est forte</strong>. J'ai appris à prioriser, à convaincre, et à livrer des résultats concrets dans un temps court.</p>
+    <p style="color:var(--muted);margin-bottom:1.25rem;line-height:1.9;">Je perçois une vraie progression sur la <strong style="color:var(--text)">communication opérationnelle</strong> et l'<strong style="color:var(--text)">analyse de données</strong>. Les points à renforcer : maîtrise des outils paid (Meta Ads, Google Ads) et mesure d'impact à long terme.</p>
+    <p style="color:var(--muted);line-height:1.9;">Ce stage renforce mon projet d'évoluer dans des marques à forte identité, idéalement dans l'<strong style="color:var(--text)">univers du surf, du sport ou du lifestyle</strong>.</p>
+  </div>
+</section>
+
+<footer>
+  <span class="footer-copy">© 2026 Jules Vermeulen</span>
+  <span class="footer-logo">Jules<span>.</span></span>
+  <div class="footer-links">
+    <a href="https://www.linkedin.com/in/jules-vermeulen/" target="_blank">LinkedIn</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</footer>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="anim.js"></script>
+<script>
+  const map = L.map('map', { zoomControl: true, scrollWheelZoom: false }).setView([44.8635, -0.5513], 16);
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+    attribution: '© OpenStreetMap © CARTO', maxZoom: 19
+  }).addTo(map);
+  const icon = L.divIcon({
+    html: '<div style="background:#0CC0D4;width:16px;height:16px;border-radius:50%;border:3px solid #fff;box-shadow:0 0 14px rgba(12,192,212,0.9);"></div>',
+    className: '', iconSize: [16,16], iconAnchor: [8,8]
+  });
+  L.marker([44.8635, -0.5513], { icon })
+    .addTo(map)
+    .bindPopup('<div class="map-label">🏄 Wave Surf Café</div>170 Cours du Médoc<br>Bordeaux, 33300')
+    .openPopup();
+</script>
+</body>
+</html>
